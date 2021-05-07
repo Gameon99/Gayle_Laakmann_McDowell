@@ -8,7 +8,7 @@ public class Solution{
     String s = sc.nextLine();
     for(int i = 0; i < s.length();i++){
       for(int j = 1;j < s.length();j++){
-        if(s.charAt(j) == s.charAt(i){
+        if(s.charAt(j) == s.charAt(i)){
           check = 1;
         }
       }
