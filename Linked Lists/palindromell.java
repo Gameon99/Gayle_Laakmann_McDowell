@@ -1,3 +1,4 @@
+//Using clone and reverse
 public class LinkedList {
     Node head;
     static class Node{
@@ -81,5 +82,73 @@ public class LinkedList {
             return false;
         }
         
+    }
+}
+//Using stack - store first half of elements on to stack, pop and check remaining ll
+package GayleLaakmann;
+
+import java.util.Stack;
+
+public class permutationllstack {
+    Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d){
+            data = d;
+            next = null;
+        }
+    }
+    public static void main(String[] args){
+
+        Stack<Integer> stack = new Stack<>();
+
+        permutationllstack list1 = new permutationllstack();
+        list1.insert(list1,1);
+        list1.insert(list1,4);
+        list1.insert(list1,3);
+        list1.insert(list1,2);
+        list1.insert(list1,1);
+
+        Node fast = list1.head;
+        Node slow = list1.head;
+
+        while(fast != null && fast.next != null){
+            stack.push(slow.data);
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        if(fast != null){
+            slow = slow.next;
+        }
+
+        int count = 0;
+        while(slow != null){
+            int top = stack.pop().intValue();
+            if(top != slow.data){
+                count = 1;
+                break;
+            }
+            slow = slow.next;
+        }
+        if(count == 1){
+            System.out.println("false");
+        }else{
+            System.out.println("true");
+        }
+    }
+    public static permutationllstack insert(permutationllstack list, int d){
+        Node newnode = new Node(d);
+        newnode.next = null;
+        if(list.head == null){
+            list.head = newnode;
+        }else{
+            Node last = list.head;
+            while(last.next != null){
+                last = last.next;
+            }
+            last.next = newnode;
+        }
+        return list;
     }
 }
