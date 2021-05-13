@@ -26,3 +26,12 @@ public class stack{
 
     }
 }
+Queue -> FIFO
+.add(item);
+.remove();
+peek();
+isEmpty();
+.size();
+Since Queue is an interface, objects cannot be created of the type queue.
+We always need a class which extends this list in order to create an object.
+Queue<Integer> q = new LinkedList<>();
